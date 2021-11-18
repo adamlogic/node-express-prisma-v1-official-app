@@ -1,5 +1,6 @@
 import express, { NextFunction, Request, Response } from 'express';
 import cors from 'cors';
+import judoscale from 'judoscale-node';
 import swaggerUi from 'swagger-ui-express';
 import bodyParser from 'body-parser';
 import routes from './routes/routes';
@@ -13,6 +14,7 @@ const app = express();
  */
 
 app.use(cors());
+app.use(judoscale());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(routes);
