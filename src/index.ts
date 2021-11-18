@@ -1,11 +1,12 @@
 import express, { NextFunction, Request, Response } from 'express';
 import cors from 'cors';
-import judoscale from 'judoscale-node';
 import swaggerUi from 'swagger-ui-express';
 import bodyParser from 'body-parser';
 import routes from './routes/routes';
 import HttpException from './models/http-exception.model';
 import swaggerDocument from '../docs/swagger.json';
+
+const judoscale = require('judoscale-node');
 
 const app = express();
 
