@@ -14,7 +14,18 @@ const app = express();
  * App Configuration
  */
 
+/* eslint-disable */
+function debugJudoscale(req: Request, _res: Response, next: Function) {
+  console.debug(
+    `requestStart=${req.headers['x-request-start']} type=${typeof req.headers[
+      'x-request-start'
+    ]} allKeys=${Object.keys(req.headers).join(',')}`,
+  );
+  next();
+}
+
 app.use(cors());
+app.use(debugJudoscale);
 app.use(judoscale());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
